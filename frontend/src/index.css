@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f4f3;
+  color: #1f2937;
+  font-family: "Poppins", system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+.dark html,
+.dark body {
+  background-color: #121717;
+  color: #e6e6e6;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.max-w-app {
+  max-width: 430px;
+}
+
+/* Mobile: keep the current compact layout unchanged */
+@media (max-width: 767px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Tablet: widen the app shell and spacing without changing the mobile-first experience */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .max-w-app {
+    max-width: 720px;
+  }
+
+  body {
+    padding-inline: 0.75rem;
+  }
+}
+
+/* Laptop/Desktop: expand the layout for larger screens while keeping the content centered */
+@media (min-width: 1024px) {
+  .max-w-app {
+    max-width: 1180px;
+  }
+
+  body {
+    padding-inline: 1rem;
+  }
+}
+
+/* Hide scrollbar but keep it scrollable, feels more like a native app */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}

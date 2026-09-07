@@ -35,7 +35,7 @@ const ProductPicker = ({ cartItems, onIncrease, onDecrease }) => {
       </div>
 
       {isLoading && (
-        <div className="grid grid-cols-2 gap-3">
+        <div className="product-picker-grid grid grid-cols-2 gap-3">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="h-36 rounded-card bg-background dark:bg-[#121717] animate-pulse" />
           ))}
@@ -56,7 +56,7 @@ const ProductPicker = ({ cartItems, onIncrease, onDecrease }) => {
       )}
 
       {!isLoading && products.length > 0 && (
-        <div className="grid grid-cols-2 gap-3">
+        <div className="product-picker-grid grid grid-cols-2 gap-3">
           {products.map((product) => {
             const quantity = getQuantity(product._id);
             return (

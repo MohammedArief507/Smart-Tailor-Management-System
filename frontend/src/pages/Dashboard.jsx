@@ -41,7 +41,7 @@ const Dashboard = () => {
       {/* Header */}
       <div className="mb-6">
         <p className="text-sm text-gray-500 dark:text-gray-400">Welcome back,</p>
-        <h1 className="text-xl font-bold text-textmain dark:text-card">{user?.shopName}</h1>
+        <h1 className="text-xl font-bold text-primary  dark:text-card">{user?.shopName}</h1>
       </div>
 
       {isLoading && (

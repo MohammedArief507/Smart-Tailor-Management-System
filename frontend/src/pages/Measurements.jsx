@@ -103,17 +103,15 @@ const Measurements = () => {
     <MainLayout showFab={false}>
       {/* Screen 1: category menu */}
       {view === "categories" && (
-        <div className="bg-white dark:bg-[#1A2020] rounded-card shadow-softer overflow-hidden">
-          {MEASUREMENT_CATEGORIES.map((category, i) => (
+        <div className="measurement-category-list">
+          {MEASUREMENT_CATEGORIES.map((category) => (
             <button
               key={category}
               onClick={() => openCategory(category)}
-              className={`w-full flex items-center justify-between px-4 py-4 ${
-                i < MEASUREMENT_CATEGORIES.length - 1 ? "border-b border-gray-100 dark:border-gray-800" : ""
-              }`}
+              className="measurement-category-box w-full flex items-center justify-between hover:shadow-lg"
             >
-              <span className="text-sm font-semibold text-textmain dark:text-card">{category}</span>
-              <HiChevronRight className="text-gray-300" />
+              <span className="text-xl font-bold text-textmain dark:text-card">{category}</span>
+              <HiChevronRight className="text-gray-300 size-10 " />
             </button>
           ))}
         </div>
@@ -229,77 +227,7 @@ const Measurements = () => {
               ))}
           </div>
 
-          {/* Right side: Clothing images - Desktop view */}
-          <div className="hidden lg:flex flex-col gap-4">
-            {/* Blouse image */}
-            <div className="flex-1 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-[#1A2020] dark:to-[#0F1514] rounded-card shadow-softer overflow-hidden flex items-center justify-center relative">
-              <img
-                src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=400&h=400&fit=crop"
-                alt="Blouse"
-                className="w-full h-full object-cover opacity-80"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              <span className="absolute bottom-3 left-3 text-white text-xs font-semibold bg-black/40 px-2 py-1 rounded">Blouse</span>
-            </div>
 
-            {/* Chitidar image */}
-            <div className="flex-1 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-[#1A2020] dark:to-[#0F1514] rounded-card shadow-softer overflow-hidden flex items-center justify-center relative">
-              <img
-                src="https://images.unsplash.com/photo-1539008588435-666190591713?w=400&h=400&fit=crop"
-                alt="Chitidar"
-                className="w-full h-full object-cover opacity-80"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              <span className="absolute bottom-3 left-3 text-white text-xs font-semibold bg-black/40 px-2 py-1 rounded">Chitidar</span>
-            </div>
-
-            {/* Pant image */}
-            <div className="flex-1 bg-gradient-to-br from-amber-50 to-amber-100 dark:from-[#1A2020] dark:to-[#0F1514] rounded-card shadow-softer overflow-hidden flex items-center justify-center relative">
-              <img
-                src="https://images.unsplash.com/photo-1542272604-787c62b0a3d2?w=400&h=400&fit=crop"
-                alt="Pant"
-                className="w-full h-full object-cover opacity-80"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              <span className="absolute bottom-3 left-3 text-white text-xs font-semibold bg-black/40 px-2 py-1 rounded">Pant</span>
-            </div>
-          </div>
-
-          {/* Mobile/Tablet stacked view: Show images below form */}
-          <div className="lg:hidden grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {/* Blouse image */}
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-[#1A2020] dark:to-[#0F1514] rounded-card shadow-softer overflow-hidden h-40 flex items-center justify-center relative">
-              <img
-                src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=300&h=300&fit=crop"
-                alt="Blouse"
-                className="w-full h-full object-cover opacity-80"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              <span className="absolute bottom-2 left-2 text-white text-[10px] font-semibold bg-black/40 px-2 py-1 rounded">Blouse</span>
-            </div>
-
-            {/* Chitidar image */}
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-[#1A2020] dark:to-[#0F1514] rounded-card shadow-softer overflow-hidden h-40 flex items-center justify-center relative">
-              <img
-                src="https://images.unsplash.com/photo-1539008588435-666190591713?w=300&h=300&fit=crop"
-                alt="Chitidar"
-                className="w-full h-full object-cover opacity-80"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              <span className="absolute bottom-2 left-2 text-white text-[10px] font-semibold bg-black/40 px-2 py-1 rounded">Chitidar</span>
-            </div>
-
-            {/* Pant image */}
-            <div className="bg-gradient-to-br from-amber-50 to-amber-100 dark:from-[#1A2020] dark:to-[#0F1514] rounded-card shadow-softer overflow-hidden h-40 flex items-center justify-center relative">
-              <img
-                src="https://images.unsplash.com/photo-1542272604-787c62b0a3d2?w=300&h=300&fit=crop"
-                alt="Pant"
-                className="w-full h-full object-cover opacity-80"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              <span className="absolute bottom-2 left-2 text-white text-[10px] font-semibold bg-black/40 px-2 py-1 rounded">Pant</span>
-            </div>
-          </div>
         </div>
       )}
     </MainLayout>

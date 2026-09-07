@@ -1,5 +1,13 @@
 require("dotenv").config();
 const dns = require("dns");
+
+// Point Node directly at Google's DNS servers, and prefer IPv4 — together
+// these fix "querySrv ECONNREFUSED" when connecting to MongoDB Atlas
+// (mongodb+srv://...) on some Windows networks. Must run before anything
+// that connects to MongoDB.
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
+dns.setDefaultResultOrder("ipv4first");
+
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
@@ -9,11 +17,6 @@ const productRoutes = require("./routes/productRoutes");
 const customerRoutes = require("./routes/customerRoutes");
 const transactionRoutes = require("./routes/transactionRoutes");
 const measurementRoutes = require("./routes/measurementRoutes");
-
-// Node 18+ sometimes prefers IPv6 for DNS lookups, which breaks the SRV
-// lookup MongoDB Atlas connection strings rely on (mongodb+srv://...) on
-// some Windows networks. Forcing IPv4 first fixes "querySrv ECONNREFUSED".
-dns.setDefaultResultOrder("ipv4first");
 
 const app = express();
 
